@@ -119,12 +119,15 @@ static void check_start_application(void) {
     }
 #endif
 
-    if (RESET_CONTROLLER->RCAUSE.bit.POR) {
+    if (RESET_CONTROLLER->RCAUSE.bit.POR            //  If power-on reset
+        || RESET_CONTROLLER->RCAUSE.bit.BOD12       //  or either brown-out
+        || RESET_CONTROLLER->RCAUSE.bit.BOD33 ) {   //  reset, clear *DBL_TAP_PTR
         *DBL_TAP_PTR = 0;
-    } else if (*DBL_TAP_PTR == DBL_TAP_MAGIC) {
+    } else if (RESET_CONTROLLER->RCAUSE.bit.EXT     //  If user pressed reset button
+                && *DBL_TAP_PTR == DBL_TAP_MAGIC) { //  AND it’s the second time through
         *DBL_TAP_PTR = 0;
         return; // stay in bootloader
-    } else {
+    } else {                                        //  This should probably check RESET_CONTROLLER->RCAUSE.bit.EXT, too
         if (*DBL_TAP_PTR != DBL_TAP_MAGIC_QUICK_BOOT) {
             *DBL_TAP_PTR = DBL_TAP_MAGIC;
             delay(500);
