@@ -188,6 +188,30 @@ Thus, it's best to set the USB ID to one for which there are no drivers.
 
 The bootloader sits at 0x00000000, and the application starts at 0x00002000 (SAMD21) or 0x00004000 (SAMD51).
 
+#### Bootloader Hold Switch
+
+A Board can be configured to sense the state of a GPIO and to hold the bootloader from running an application if it is in the appropriate state.  To enable this, add the following to your board configuration header file.
+
+```C
+// The Pin that will tell us to stay in the bootloader or not.
+#define HOLD_PIN PIN_PA02
+
+// Optional, define if a Pull up or pulldown is needed.
+#define HOLD_PIN_PULLUP
+//#define HOLD_PIN_PULLDOWN
+
+// What is the Hold state of the GPIO, 0 or 1.
+#define HOLD_STATE 1
+```
+
+Set `HOLD_PIN` to the appropriate GPIO and `HOLD_STATE` to the logic level which will hold the bootloader from running the application.
+
+The definition of _BOTH_ `HOLD_PIN` and `HOLD_STATE` triggers the inclusion of this feature. If either of these is undefined, this feature is not enabled.
+
+If an internal pullup/pulldown is required for the IO, it can be enabled with the _OPTIONAL_ `HOLD_PIN_PULLUP` or `HOLD_PIN_PULLDOWN` macros.  If neither are defined, then no pullup/pulldown will be enabled for the io pin.
+
+This switch is NOT dynamic.  Once the bootloader has sensed this pin and decided not to run the application, then a change in this IO will not, itself, then cause the Application to run, without also resetting the board.
+
 ## Code of Conduct
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.

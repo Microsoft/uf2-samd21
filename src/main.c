@@ -94,6 +94,30 @@ extern int8_t led_tick_step;
 static void check_start_application(void) {
     uint32_t app_start_address;
 
+// Check if there is an IO which will hold us inside the bootloader.
+#if defined(HOLD_PIN) && defined(HOLD_STATE)
+    PORT_PINCFG_Type pincfg = {0};
+    pincfg.bit.PMUXEN = false;
+    pincfg.bit.INEN   = true;
+    pincfg.bit.DRVSTR = true;
+    
+    PINOP(HOLD_PIN, DIRCLR);        // Pin is an input
+
+  #if defined(HOLD_PIN_PULLUP)
+    pincfg.bit.PULLEN = true;
+    PINOP(HOLD_PIN, OUTSET); // Pin is pulled up.
+  #elif defined(HOLD_PIN_PULLDOWN)
+    pincfg.bit.PULLEN = true;
+    PINOP(HOLD_PIN, OUTCLR); // Pin is pulled up.
+  #endif
+    PINCFG(HOLD_PIN) = pincfg.reg;
+
+    if (PINIP(HOLD_PIN) == HOLD_STATE) {
+        /* Stay in bootloader */
+        return;
+    }
+#endif
+
     /* Load the Reset Handler address of the application */
     app_start_address = *(uint32_t *)(APP_START_ADDRESS + 4);
 
