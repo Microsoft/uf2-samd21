@@ -1,0 +1,10 @@
+{
+	"name": "uf2-samdx1",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"extensions": [
+		"ms-vscode.cpptools",
+		"webfreak.debug"
+	],
+}
