@@ -2,7 +2,7 @@
 
 #include "sam.h"
 
-#ifdef SAMD21
+#if defined(SAMD21) || defined(SAML21)
 #define BOOTLOADER_K 8
 #endif
 #ifdef SAMD51
@@ -14,7 +14,7 @@ extern const uint16_t bootloader_crcs[];
 
 uint8_t pageBuf[FLASH_ROW_SIZE];
 
-#ifdef SAMD21
+#if defined(SAMD21) || defined(SAML21)
 #define NVM_FUSE_ADDR NVMCTRL_AUX0_ADDRESS
 #define exec_cmd(cmd)                                                          \
     do {                                                                       \
@@ -37,7 +37,7 @@ uint8_t pageBuf[FLASH_ROW_SIZE];
 void setBootProt(int v) {
     uint32_t fuses[2];
 
-    #ifdef SAMD21
+    #if defined(SAMD21) || defined(SAML21)
     while (!(NVMCTRL->INTFLAG.reg & NVMCTRL_INTFLAG_READY)) {}
     #endif
     #ifdef SAMD51
@@ -56,7 +56,7 @@ void setBootProt(int v) {
         repair_fuses = true;
 
         // These canonical fuse values taken from working Adafruit SAMD21 and SAMD51 boards.
-        #ifdef SAMD21
+        #if defined(SAMD21) || defined(SAML21)
         fuses[0] = 0xD8E0C7FA;
         fuses[1] = 0xFFFFFC5D;
         #endif
@@ -81,7 +81,7 @@ void setBootProt(int v) {
 
     fuses[0] = (fuses[0] & ~NVMCTRL_FUSES_BOOTPROT_Msk) | (v << NVMCTRL_FUSES_BOOTPROT_Pos);
 
-    #ifdef SAMD21
+    #if defined(SAMD21) || defined(SAML21)
     NVMCTRL->CTRLB.reg = NVMCTRL->CTRLB.reg | NVMCTRL_CTRLB_CACHEDIS | NVMCTRL_CTRLB_MANW;
 
     exec_cmd(NVMCTRL_CTRLA_CMD_EAR);
@@ -97,7 +97,7 @@ void setBootProt(int v) {
     *((uint32_t *)NVM_FUSE_ADDR) = fuses[0];
     *(((uint32_t *)NVM_FUSE_ADDR) + 1) = fuses[1];
 
-    #ifdef SAMD21
+    #if defined(SAMD21) || defined(SAML21)
     exec_cmd(NVMCTRL_CTRLA_CMD_WAP);
     #endif
     #ifdef SAMD51
@@ -123,7 +123,7 @@ int main(void) {
 
     logmsg("Before main loop");
 
-    #ifdef SAMD21
+    #if defined(SAMD21) || defined(SAML21)
     // Disable BOOTPROT while updating bootloader.
     setBootProt(7); // 0k - See "Table 22-2 Boot Loader Size" in datasheet.
     #endif
@@ -140,7 +140,7 @@ int main(void) {
 
     int i;
 
-#ifdef SAMD21
+#if defined(SAMD21) || defined(SAML21)
     const uint8_t *ptr = bootloader;
     for (i = 0; i < BOOTLOADER_K; ++i) {
         int crc = 0;
@@ -179,7 +179,7 @@ int main(void) {
 
     LED_MSC_OFF();
 
-    #ifdef SAMD21
+    #if defined(SAMD21) || defined(SAML21)
     // Re-enable BOOTPROT
     setBootProt(2); // 8k
     #endif

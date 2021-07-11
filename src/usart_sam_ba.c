@@ -117,6 +117,24 @@ void usart_open() {
     GCLK->CLKCTRL.reg = (clkctrl.reg | temp);
     #endif
 
+   #ifdef SAML21
+    uint32_t inst = uart_get_sercom_index(BOOT_USART_MODULE);
+    /* Enable clock for BOOT_USART_MODULE */
+    MCLK->APBCMASK.reg |= (1u << (inst + MCLK_APBCMASK_SERCOM0_Pos));
+    
+    GCLK->PCHCTRL[0].reg = ( GCLK_PCHCTRL_CHEN | GCLK_PCHCTRL_GEN_GCLK0 );
+
+    /* Set GCLK_GEN0 as source for GCLK_ID_SERCOMx_CORE */
+    /*GCLK_PCHCTRL_Type clkctrl = {0};
+    uint16_t temp;
+    GCLK->PCHCTRL.bit.ID = inst + GCLK_ID_SERCOM0_CORE;
+    temp = GCLK->PCHCTRL.reg;
+    pchctrl.bit.CLKEN = true;
+    pchctrl.bit.WRTLOCK = false;
+    pchctrl.bit.GEN = GCLK_PCHCTRL_GEN_GCLK0_Val;
+    GCLK->PCHCTRL.reg = (pchctrl.reg | temp);*/
+    #endif
+
     #ifdef SAMD51
     GCLK->PCHCTRL[BOOT_GCLK_ID_CORE].reg = GCLK_PCHCTRL_GEN_GCLK0_Val | (1 << GCLK_PCHCTRL_CHEN_Pos);
     GCLK->PCHCTRL[BOOT_GCLK_ID_SLOW].reg = GCLK_PCHCTRL_GEN_GCLK3_Val | (1 << GCLK_PCHCTRL_CHEN_Pos);

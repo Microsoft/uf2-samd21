@@ -1,0 +1,4015 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:saxon="http://saxon.sf.net//"
+         schemaVersion="1.3"
+         xs:schemaLocation="http://www.atmel.com/schemas/pack-device-atmel-extension PACK.DEVICE.ATMEL.EXTENSION.xsd"
+         xs:noNamespaceSchemaLocation="PACK.xsd">
+   <vendor>Atmel</vendor>
+   <url>http://packs.download.atmel.com/</url>
+   <name>SAML21_DFP</name>
+   <description>Atmel SAML21 Series Device Support</description>
+   <releases>
+      <release version="1.2.125" date="2018-08-31">Added ATSAML21J18BU. DSU ENTRY array changed to explicit registers. New representation of alternate registers in ATDF.</release>
+      <release version="1.1.110">Removed warnings for some component headers.</release>
+      <release version="1.1.103">Files now under Apache license. Fixed GNU/IAR assembler issues.</release>
+      <release version="1.0.65">Updated documentation links.</release>
+      <release version="1.0.63">Added ATSAML21J18BU.</release>
+      <release version="1.0.54">Initial release.</release>
+   </releases>
+   <keywords>
+      <keyword>Atmel</keyword>
+      <keyword>Device Family Package Atmel</keyword>
+      <keyword>Device Support</keyword>
+      <keyword>SAML21</keyword>
+   </keywords>
+   <devices>
+      <family Dfamily="SAML21" Dvendor="Atmel:3">
+         <device Dname="ATSAML21G16B">
+            <processor Dcore="Cortex-M0+"
+                       Dendian="Little-endian"
+                       Dmpu="NO_MPU"
+                       Dfpu="NO_FPU"/>
+            <compile header="saml21b/include/sam.h" define="__SAML21G16B__"/>
+            <debug svd="saml21b/svd/ATSAML21G16B.svd"/>
+            <memory id="IROM1"
+                    start="0x00000000"
+                    size="0x10000"
+                    default="1"
+                    startup="1"/>
+            <memory id="IROM2" start="0x00400000" size="0x800"/>
+            <memory id="IRAM1" start="0x20000000" size="0x2000" default="1"/>
+            <memory id="IRAM2" start="0x30000000" size="0x1000"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21_64.FLM"
+                       start="0x00000000"
+                       size="0x10000"
+                       default="1"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21_64_EEPROM.FLM"
+                       start="0x00400000"
+                       size="0x00800"
+                       default="1"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/FlashOS.h"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvgui"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvopt"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvproj"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/FlashDev.c"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/FlashPrg.c"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/Target.lin"/>
+            <environment name="atmel">
+               <at:extension xmlns:at="http://www.atmel.com/schemas/pack-device-atmel-extension"
+                             schemaVersion="1.0">
+                  <at:atdf name="saml21b/atdf/ATSAML21G16B.atdf"/>
+                  <at:variant ordercode="SAML21G16B-MU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:variant ordercode="SAML21G16B-MN"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="105"/>
+                  <at:variant ordercode="SAML21G16B-AU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:variant ordercode="SAML21G16B-AN"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="105"/>
+                  <at:memory name="FLASH"
+                             start="0x00000000"
+                             size="0x10000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="CAL"
+                             start="0x00800000"
+                             size="0x8"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="LOCKBIT"
+                             start="0x00802000"
+                             size="0x4"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="AUX0"
+                             start="0x00804000"
+                             size="0x100"
+                             type="user_page"
+                             pagesize="64"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="AUX1"
+                             start="0x00806000"
+                             size="0x100"
+                             type="fuses"
+                             pagesize="64"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="RWW"
+                             start="0x00400000"
+                             size="0x800"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HSRAM"
+                             start="0x20000000"
+                             size="0x2000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="LPRAM"
+                             start="0x30000000"
+                             size="0x1000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HPB0"
+                             start="0x40000000"
+                             size="0x4000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB1"
+                             start="0x41000000"
+                             size="0x10000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB2"
+                             start="0x42000000"
+                             size="0x8000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB3"
+                             start="0x43000000"
+                             size="0x2000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB4"
+                             start="0x44000000"
+                             size="0x1000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PPB"
+                             start="0xE0000000"
+                             size="0x100000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="SCS"
+                             start="0xE000E000"
+                             size="0x00001000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PERIPHERALS"
+                             start="0x40000000"
+                             size="0x20000000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:interface type="swd" name="SWD"/>
+                  <at:tool id="com.atmel.avrdbg.tool.atmelice"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbgc"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagicemk3"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagice3plus"/>
+                  <at:tool id="com.atmel.avrdbg.tool.medbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.nedbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.pickit4"/>
+                  <at:tool id="com.atmel.avrdbg.tool.powerdebugger"/>
+                  <at:tool id="com.atmel.avrdbg.tool.samice"/>
+                  <at:project name="Barebone C Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.c)"/>
+                     </at:component>
+                  </at:project>
+                  <at:project name="Barebone Cpp Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.cpp)"/>
+                     </at:component>
+                  </at:project>
+                  <at:prerequisite context="compiling" Tcompiler="GCC" component="ARM-GCC"/>
+                  <at:prerequisite context="compiling" Tcompiler="IAR" component="ARM-IAR"/>
+                  <at:prerequisite context="compiling" Tcompiler="ARMCC" component="ARMCC"/>
+               </at:extension>
+            </environment>
+            <description>ARM Cortex-M0+ based ultra-low-power microcontroller with 64KB Flash, 12KB SRAM, 48 MHz, six 16-bit timer/counters, DMA, six SERCOMs, USB Host and Device, 14-channel 12-bit ADC, 2-channel 12-bit DAC, 48 pins</description>
+            <book name="https://www.microchip.com/wwwproducts/Devices.aspx?product=ATSAML21G16B"
+                  title="Device page for ATSAML21G16B"/>
+            <book name="https://www.microchip.com/wwwproducts/productds/ATSAML21G16B"
+                  title="Datasheet"/>
+         </device>
+         <device Dname="ATSAML21G17B">
+            <processor Dcore="Cortex-M0+"
+                       Dendian="Little-endian"
+                       Dmpu="NO_MPU"
+                       Dfpu="NO_FPU"/>
+            <compile header="saml21b/include/sam.h" define="__SAML21G17B__"/>
+            <debug svd="saml21b/svd/ATSAML21G17B.svd"/>
+            <memory id="IROM1"
+                    start="0x00000000"
+                    size="0x20000"
+                    default="1"
+                    startup="1"/>
+            <memory id="IROM2" start="0x00400000" size="0x1000"/>
+            <memory id="IRAM1" start="0x20000000" size="0x4000" default="1"/>
+            <memory id="IRAM2" start="0x30000000" size="0x2000"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21_128.FLM"
+                       start="0x00000000"
+                       size="0x20000"
+                       default="1"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21_128_EEPROM.FLM"
+                       start="0x00400000"
+                       size="0x01000"
+                       default="1"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/FlashOS.h"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvgui"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvopt"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvproj"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/FlashDev.c"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/FlashPrg.c"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/Target.lin"/>
+            <environment name="atmel">
+               <at:extension xmlns:at="http://www.atmel.com/schemas/pack-device-atmel-extension"
+                             schemaVersion="1.0">
+                  <at:atdf name="saml21b/atdf/ATSAML21G17B.atdf"/>
+                  <at:variant ordercode="SAML21G17B-MU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:variant ordercode="SAML21G17B-MN"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="105"/>
+                  <at:variant ordercode="SAML21G17B-AU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:variant ordercode="SAML21G17B-AN"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="105"/>
+                  <at:memory name="FLASH"
+                             start="0x00000000"
+                             size="0x20000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="CAL"
+                             start="0x00800000"
+                             size="0x8"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="LOCKBIT"
+                             start="0x00802000"
+                             size="0x4"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="AUX0"
+                             start="0x00804000"
+                             size="0x100"
+                             type="user_page"
+                             pagesize="64"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="AUX1"
+                             start="0x00806000"
+                             size="0x100"
+                             type="fuses"
+                             pagesize="64"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="RWW"
+                             start="0x00400000"
+                             size="0x1000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HSRAM"
+                             start="0x20000000"
+                             size="0x4000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="LPRAM"
+                             start="0x30000000"
+                             size="0x2000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HPB0"
+                             start="0x40000000"
+                             size="0x4000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB1"
+                             start="0x41000000"
+                             size="0x10000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB2"
+                             start="0x42000000"
+                             size="0x8000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB3"
+                             start="0x43000000"
+                             size="0x2000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB4"
+                             start="0x44000000"
+                             size="0x1000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PPB"
+                             start="0xE0000000"
+                             size="0x100000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="SCS"
+                             start="0xE000E000"
+                             size="0x00001000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PERIPHERALS"
+                             start="0x40000000"
+                             size="0x20000000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:interface type="swd" name="SWD"/>
+                  <at:tool id="com.atmel.avrdbg.tool.atmelice"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbgc"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagicemk3"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagice3plus"/>
+                  <at:tool id="com.atmel.avrdbg.tool.medbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.nedbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.pickit4"/>
+                  <at:tool id="com.atmel.avrdbg.tool.powerdebugger"/>
+                  <at:tool id="com.atmel.avrdbg.tool.samice"/>
+                  <at:project name="Barebone C Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.c)"/>
+                     </at:component>
+                  </at:project>
+                  <at:project name="Barebone Cpp Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.cpp)"/>
+                     </at:component>
+                  </at:project>
+                  <at:prerequisite context="compiling" Tcompiler="GCC" component="ARM-GCC"/>
+                  <at:prerequisite context="compiling" Tcompiler="IAR" component="ARM-IAR"/>
+                  <at:prerequisite context="compiling" Tcompiler="ARMCC" component="ARMCC"/>
+               </at:extension>
+            </environment>
+            <description>ARM Cortex-M0+ based ultra-low-power microcontroller with 128KB Flash, 24KB SRAM, 48 MHz, six 16-bit timer/counters, DMA, six SERCOMs, USB Host and Device, 14-channel 12-bit ADC, 2-channel 12-bit DAC, 48 pins</description>
+            <book name="https://www.microchip.com/wwwproducts/Devices.aspx?product=ATSAML21G17B"
+                  title="Device page for ATSAML21G17B"/>
+            <book name="https://www.microchip.com/wwwproducts/productds/ATSAML21G17B"
+                  title="Datasheet"/>
+         </device>
+         <device Dname="ATSAML21G18B">
+            <processor Dcore="Cortex-M0+"
+                       Dendian="Little-endian"
+                       Dmpu="NO_MPU"
+                       Dfpu="NO_FPU"/>
+            <compile header="saml21b/include/sam.h" define="__SAML21G18B__"/>
+            <debug svd="saml21b/svd/ATSAML21G18B.svd"/>
+            <memory id="IROM1"
+                    start="0x00000000"
+                    size="0x40000"
+                    default="1"
+                    startup="1"/>
+            <memory id="IROM2" start="0x00400000" size="0x2000"/>
+            <memory id="IRAM1" start="0x20000000" size="0x8000" default="1"/>
+            <memory id="IRAM2" start="0x30000000" size="0x2000"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21_256.FLM"
+                       start="0x00000000"
+                       size="0x40000"
+                       default="1"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21_256_EEPROM.FLM"
+                       start="0x00400000"
+                       size="0x02000"
+                       default="1"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/FlashOS.h"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvgui"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvopt"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvproj"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/FlashDev.c"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/FlashPrg.c"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/Target.lin"/>
+            <environment name="atmel">
+               <at:extension xmlns:at="http://www.atmel.com/schemas/pack-device-atmel-extension"
+                             schemaVersion="1.0">
+                  <at:atdf name="saml21b/atdf/ATSAML21G18B.atdf"/>
+                  <at:variant ordercode="SAML21G18B-MU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:variant ordercode="SAML21G18B-MN"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="105"/>
+                  <at:variant ordercode="SAML21G18B-AU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:variant ordercode="SAML21G18B-AN"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="105"/>
+                  <at:memory name="FLASH"
+                             start="0x00000000"
+                             size="0x40000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="CAL"
+                             start="0x00800000"
+                             size="0x8"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="LOCKBIT"
+                             start="0x00802000"
+                             size="0x4"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="AUX0"
+                             start="0x00804000"
+                             size="0x100"
+                             type="user_page"
+                             pagesize="64"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="AUX1"
+                             start="0x00806000"
+                             size="0x100"
+                             type="fuses"
+                             pagesize="64"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="RWW"
+                             start="0x00400000"
+                             size="0x2000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HSRAM"
+                             start="0x20000000"
+                             size="0x8000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="LPRAM"
+                             start="0x30000000"
+                             size="0x2000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HPB0"
+                             start="0x40000000"
+                             size="0x4000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB1"
+                             start="0x41000000"
+                             size="0x10000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB2"
+                             start="0x42000000"
+                             size="0x8000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB3"
+                             start="0x43000000"
+                             size="0x2000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB4"
+                             start="0x44000000"
+                             size="0x1000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PPB"
+                             start="0xE0000000"
+                             size="0x100000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="SCS"
+                             start="0xE000E000"
+                             size="0x00001000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PERIPHERALS"
+                             start="0x40000000"
+                             size="0x20000000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:interface type="swd" name="SWD"/>
+                  <at:tool id="com.atmel.avrdbg.tool.atmelice"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbgc"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagicemk3"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagice3plus"/>
+                  <at:tool id="com.atmel.avrdbg.tool.medbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.nedbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.pickit4"/>
+                  <at:tool id="com.atmel.avrdbg.tool.powerdebugger"/>
+                  <at:tool id="com.atmel.avrdbg.tool.samice"/>
+                  <at:project name="Barebone C Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.c)"/>
+                     </at:component>
+                  </at:project>
+                  <at:project name="Barebone Cpp Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.cpp)"/>
+                     </at:component>
+                  </at:project>
+                  <at:prerequisite context="compiling" Tcompiler="GCC" component="ARM-GCC"/>
+                  <at:prerequisite context="compiling" Tcompiler="IAR" component="ARM-IAR"/>
+                  <at:prerequisite context="compiling" Tcompiler="ARMCC" component="ARMCC"/>
+               </at:extension>
+            </environment>
+            <description>ARM Cortex-M0+ based ultra-low-power microcontroller with 256KB Flash, 40KB SRAM, 48 MHz, six 16-bit timer/counters, DMA, six SERCOMs, USB Host and Device, 14-channel 12-bit ADC, 2-channel 12-bit DAC, 48 pins</description>
+            <book name="https://www.microchip.com/wwwproducts/Devices.aspx?product=ATSAML21G18B"
+                  title="Device page for ATSAML21G18B"/>
+            <book name="https://www.microchip.com/wwwproducts/productds/ATSAML21G18B"
+                  title="Datasheet"/>
+         </device>
+         <device Dname="ATSAML21G18A">
+            <processor Dcore="Cortex-M0+"
+                       Dendian="Little-endian"
+                       Dmpu="NO_MPU"
+                       Dfpu="NO_FPU"/>
+            <compile header="saml21a1/include/sam.h" define="__SAML21G18A__"/>
+            <debug svd="saml21a1/svd/ATSAML21G18A.svd"/>
+            <memory id="IROM1"
+                    start="0x00000000"
+                    size="0x40000"
+                    default="1"
+                    startup="1"/>
+            <memory id="IROM2" start="0x00400000" size="0x2000"/>
+            <memory id="IRAM1" start="0x20000000" size="0x8000" default="1"/>
+            <memory id="IRAM2" start="0x30000000" size="0x2000"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/ATSAML21_256.FLM"
+                       start="0x00000000"
+                       size="0x40000"
+                       default="1"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/ATSAML21_256_EEPROM.FLM"
+                       start="0x00400000"
+                       size="0x02000"
+                       default="1"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/FlashOS.h"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/ATSAML21/ATSAML21.uvgui"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/ATSAML21/ATSAML21.uvopt"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/ATSAML21/ATSAML21.uvproj"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/ATSAML21/FlashDev.c"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/ATSAML21/FlashPrg.c"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/ATSAML21/Target.lin"/>
+            <environment name="atmel">
+               <at:extension xmlns:at="http://www.atmel.com/schemas/pack-device-atmel-extension"
+                             schemaVersion="1.0">
+                  <at:atdf name="saml21a1/atdf/ATSAML21G18A.atdf"/>
+                  <at:variant ordercode="SAML21G18A-MU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:variant ordercode="SAML21G18A-AU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:memory name="FLASH"
+                             start="0x00000000"
+                             size="0x40000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="CAL"
+                             start="0x00800000"
+                             size="0x8"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="LOCKBIT"
+                             start="0x00802000"
+                             size="0x4"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="AUX0"
+                             start="0x00804000"
+                             size="0x100"
+                             type="user_page"
+                             pagesize="64"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="AUX1"
+                             start="0x00806000"
+                             size="0x100"
+                             type="fuses"
+                             pagesize="64"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="RWW"
+                             start="0x00400000"
+                             size="0x2000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HSRAM"
+                             start="0x20000000"
+                             size="0x8000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="LPRAM"
+                             start="0x30000000"
+                             size="0x2000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HPB0"
+                             start="0x40000000"
+                             size="0x4000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB1"
+                             start="0x41000000"
+                             size="0x10000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB2"
+                             start="0x42000000"
+                             size="0x8000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB3"
+                             start="0x43000000"
+                             size="0x2000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB4"
+                             start="0x44000000"
+                             size="0x1000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PPB"
+                             start="0xE0000000"
+                             size="0x100000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="SCS"
+                             start="0xE000E000"
+                             size="0x00001000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PERIPHERALS"
+                             start="0x40000000"
+                             size="0x20000000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:interface type="swd" name="SWD"/>
+                  <at:tool id="com.atmel.avrdbg.tool.atmelice"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbgc"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagicemk3"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagice3plus"/>
+                  <at:tool id="com.atmel.avrdbg.tool.medbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.nedbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.pickit4"/>
+                  <at:tool id="com.atmel.avrdbg.tool.powerdebugger"/>
+                  <at:tool id="com.atmel.avrdbg.tool.samice"/>
+                  <at:project name="Barebone C Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.c)"/>
+                     </at:component>
+                  </at:project>
+                  <at:project name="Barebone Cpp Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.cpp)"/>
+                     </at:component>
+                  </at:project>
+                  <at:prerequisite context="compiling" Tcompiler="GCC" component="ARM-GCC"/>
+                  <at:prerequisite context="compiling" Tcompiler="IAR" component="ARM-IAR"/>
+                  <at:prerequisite context="compiling" Tcompiler="ARMCC" component="ARMCC"/>
+               </at:extension>
+            </environment>
+            <book name="https://www.microchip.com/wwwproducts/Devices.aspx?product=ATSAML21G18A"
+                  title="Device page for ATSAML21G18A"/>
+            <book name="https://www.microchip.com/wwwproducts/productds/ATSAML21G18A"
+                  title="Datasheet"/>
+         </device>
+         <device Dname="ATSAML21E15B">
+            <processor Dcore="Cortex-M0+"
+                       Dendian="Little-endian"
+                       Dmpu="NO_MPU"
+                       Dfpu="NO_FPU"/>
+            <compile header="saml21b/include/sam.h" define="__SAML21E15B__"/>
+            <debug svd="saml21b/svd/ATSAML21E15B.svd"/>
+            <memory id="IROM1"
+                    start="0x00000000"
+                    size="0x8000"
+                    default="1"
+                    startup="1"/>
+            <memory id="IROM2" start="0x00400000" size="0x400"/>
+            <memory id="IRAM1" start="0x20000000" size="0x1000" default="1"/>
+            <memory id="IRAM2" start="0x30000000" size="0x800"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21_32.FLM"
+                       start="0x00000000"
+                       size="0x08000"
+                       default="1"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21_32_EEPROM.FLM"
+                       start="0x00400000"
+                       size="0x00400"
+                       default="1"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/FlashOS.h"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvgui"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvopt"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvproj"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/FlashDev.c"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/FlashPrg.c"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/Target.lin"/>
+            <environment name="atmel">
+               <at:extension xmlns:at="http://www.atmel.com/schemas/pack-device-atmel-extension"
+                             schemaVersion="1.0">
+                  <at:atdf name="saml21b/atdf/ATSAML21E15B.atdf"/>
+                  <at:variant ordercode="SAML21E15B-MU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:variant ordercode="SAML21E15B-MN"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="105"/>
+                  <at:variant ordercode="SAML21E15B-AU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:variant ordercode="SAML21E15B-AN"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="105"/>
+                  <at:memory name="FLASH"
+                             start="0x00000000"
+                             size="0x8000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="CAL"
+                             start="0x00800000"
+                             size="0x8"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="LOCKBIT"
+                             start="0x00802000"
+                             size="0x4"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="AUX0"
+                             start="0x00804000"
+                             size="0x100"
+                             type="user_page"
+                             pagesize="64"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="AUX1"
+                             start="0x00806000"
+                             size="0x100"
+                             type="fuses"
+                             pagesize="64"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="RWW"
+                             start="0x00400000"
+                             size="0x400"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HSRAM"
+                             start="0x20000000"
+                             size="0x1000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="LPRAM"
+                             start="0x30000000"
+                             size="0x800"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HPB0"
+                             start="0x40000000"
+                             size="0x4000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB1"
+                             start="0x41000000"
+                             size="0x10000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB2"
+                             start="0x42000000"
+                             size="0x8000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB3"
+                             start="0x43000000"
+                             size="0x2000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB4"
+                             start="0x44000000"
+                             size="0x1000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PPB"
+                             start="0xE0000000"
+                             size="0x100000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="SCS"
+                             start="0xE000E000"
+                             size="0x00001000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PERIPHERALS"
+                             start="0x40000000"
+                             size="0x20000000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:interface type="swd" name="SWD"/>
+                  <at:tool id="com.atmel.avrdbg.tool.atmelice"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbgc"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagicemk3"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagice3plus"/>
+                  <at:tool id="com.atmel.avrdbg.tool.medbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.nedbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.pickit4"/>
+                  <at:tool id="com.atmel.avrdbg.tool.powerdebugger"/>
+                  <at:tool id="com.atmel.avrdbg.tool.samice"/>
+                  <at:project name="Barebone C Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.c)"/>
+                     </at:component>
+                  </at:project>
+                  <at:project name="Barebone Cpp Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.cpp)"/>
+                     </at:component>
+                  </at:project>
+                  <at:prerequisite context="compiling" Tcompiler="GCC" component="ARM-GCC"/>
+                  <at:prerequisite context="compiling" Tcompiler="IAR" component="ARM-IAR"/>
+                  <at:prerequisite context="compiling" Tcompiler="ARMCC" component="ARMCC"/>
+               </at:extension>
+            </environment>
+            <description>ARM Cortex-M0+ based ultra-low-power microcontroller with 32KB Flash, 6KB SRAM, 48 MHz, six 16-bit timer/counters, DMA, four SERCOMs, USB Host and Device, 10-channel 12-bit ADC, 2-channel 12-bit DAC, 32 pins</description>
+            <book name="https://www.microchip.com/wwwproducts/Devices.aspx?product=ATSAML21E15B"
+                  title="Device page for ATSAML21E15B"/>
+            <book name="https://www.microchip.com/wwwproducts/productds/ATSAML21E15B"
+                  title="Datasheet"/>
+         </device>
+         <device Dname="ATSAML21E16B">
+            <processor Dcore="Cortex-M0+"
+                       Dendian="Little-endian"
+                       Dmpu="NO_MPU"
+                       Dfpu="NO_FPU"/>
+            <compile header="saml21b/include/sam.h" define="__SAML21E16B__"/>
+            <debug svd="saml21b/svd/ATSAML21E16B.svd"/>
+            <memory id="IROM1"
+                    start="0x00000000"
+                    size="0x10000"
+                    default="1"
+                    startup="1"/>
+            <memory id="IROM2" start="0x00400000" size="0x800"/>
+            <memory id="IRAM1" start="0x20000000" size="0x2000" default="1"/>
+            <memory id="IRAM2" start="0x30000000" size="0x1000"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21_64.FLM"
+                       start="0x00000000"
+                       size="0x10000"
+                       default="1"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21_64_EEPROM.FLM"
+                       start="0x00400000"
+                       size="0x00800"
+                       default="1"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/FlashOS.h"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvgui"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvopt"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvproj"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/FlashDev.c"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/FlashPrg.c"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/Target.lin"/>
+            <environment name="atmel">
+               <at:extension xmlns:at="http://www.atmel.com/schemas/pack-device-atmel-extension"
+                             schemaVersion="1.0">
+                  <at:atdf name="saml21b/atdf/ATSAML21E16B.atdf"/>
+                  <at:variant ordercode="SAML21E16B-MU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:variant ordercode="SAML21E16B-MN"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="105"/>
+                  <at:variant ordercode="SAML21E16B-AU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:variant ordercode="SAML21E16B-AN"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="105"/>
+                  <at:memory name="FLASH"
+                             start="0x00000000"
+                             size="0x10000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="CAL"
+                             start="0x00800000"
+                             size="0x8"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="LOCKBIT"
+                             start="0x00802000"
+                             size="0x4"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="AUX0"
+                             start="0x00804000"
+                             size="0x100"
+                             type="user_page"
+                             pagesize="64"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="AUX1"
+                             start="0x00806000"
+                             size="0x100"
+                             type="fuses"
+                             pagesize="64"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="RWW"
+                             start="0x00400000"
+                             size="0x800"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HSRAM"
+                             start="0x20000000"
+                             size="0x2000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="LPRAM"
+                             start="0x30000000"
+                             size="0x1000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HPB0"
+                             start="0x40000000"
+                             size="0x4000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB1"
+                             start="0x41000000"
+                             size="0x10000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB2"
+                             start="0x42000000"
+                             size="0x8000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB3"
+                             start="0x43000000"
+                             size="0x2000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB4"
+                             start="0x44000000"
+                             size="0x1000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PPB"
+                             start="0xE0000000"
+                             size="0x100000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="SCS"
+                             start="0xE000E000"
+                             size="0x00001000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PERIPHERALS"
+                             start="0x40000000"
+                             size="0x20000000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:interface type="swd" name="SWD"/>
+                  <at:tool id="com.atmel.avrdbg.tool.atmelice"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbgc"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagicemk3"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagice3plus"/>
+                  <at:tool id="com.atmel.avrdbg.tool.medbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.nedbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.pickit4"/>
+                  <at:tool id="com.atmel.avrdbg.tool.powerdebugger"/>
+                  <at:tool id="com.atmel.avrdbg.tool.samice"/>
+                  <at:project name="Barebone C Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.c)"/>
+                     </at:component>
+                  </at:project>
+                  <at:project name="Barebone Cpp Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.cpp)"/>
+                     </at:component>
+                  </at:project>
+                  <at:prerequisite context="compiling" Tcompiler="GCC" component="ARM-GCC"/>
+                  <at:prerequisite context="compiling" Tcompiler="IAR" component="ARM-IAR"/>
+                  <at:prerequisite context="compiling" Tcompiler="ARMCC" component="ARMCC"/>
+               </at:extension>
+            </environment>
+            <description>ARM Cortex-M0+ based ultra-low-power microcontroller with 64KB Flash, 12KB SRAM, 48 MHz, six 16-bit timer/counters, DMA, four SERCOMs, USB Host and Device, 10-channel 12-bit ADC, 2-channel 12-bit DAC, 32 pins</description>
+            <book name="https://www.microchip.com/wwwproducts/Devices.aspx?product=ATSAML21E16B"
+                  title="Device page for ATSAML21E16B"/>
+            <book name="https://www.microchip.com/wwwproducts/productds/ATSAML21E16B"
+                  title="Datasheet"/>
+         </device>
+         <device Dname="ATSAML21E17B">
+            <processor Dcore="Cortex-M0+"
+                       Dendian="Little-endian"
+                       Dmpu="NO_MPU"
+                       Dfpu="NO_FPU"/>
+            <compile header="saml21b/include/sam.h" define="__SAML21E17B__"/>
+            <debug svd="saml21b/svd/ATSAML21E17B.svd"/>
+            <memory id="IROM1"
+                    start="0x00000000"
+                    size="0x20000"
+                    default="1"
+                    startup="1"/>
+            <memory id="IROM2" start="0x00400000" size="0x1000"/>
+            <memory id="IRAM1" start="0x20000000" size="0x4000" default="1"/>
+            <memory id="IRAM2" start="0x30000000" size="0x2000"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21_128.FLM"
+                       start="0x00000000"
+                       size="0x20000"
+                       default="1"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21_128_EEPROM.FLM"
+                       start="0x00400000"
+                       size="0x01000"
+                       default="1"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/FlashOS.h"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvgui"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvopt"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvproj"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/FlashDev.c"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/FlashPrg.c"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/Target.lin"/>
+            <environment name="atmel">
+               <at:extension xmlns:at="http://www.atmel.com/schemas/pack-device-atmel-extension"
+                             schemaVersion="1.0">
+                  <at:atdf name="saml21b/atdf/ATSAML21E17B.atdf"/>
+                  <at:variant ordercode="SAML21E17B-MU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:variant ordercode="SAML21E17B-MN"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="105"/>
+                  <at:variant ordercode="SAML21E17B-AU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:variant ordercode="SAML21E17B-AN"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="105"/>
+                  <at:memory name="FLASH"
+                             start="0x00000000"
+                             size="0x20000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="CAL"
+                             start="0x00800000"
+                             size="0x8"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="LOCKBIT"
+                             start="0x00802000"
+                             size="0x4"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="AUX0"
+                             start="0x00804000"
+                             size="0x100"
+                             type="user_page"
+                             pagesize="64"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="AUX1"
+                             start="0x00806000"
+                             size="0x100"
+                             type="fuses"
+                             pagesize="64"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="RWW"
+                             start="0x00400000"
+                             size="0x1000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HSRAM"
+                             start="0x20000000"
+                             size="0x4000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="LPRAM"
+                             start="0x30000000"
+                             size="0x2000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HPB0"
+                             start="0x40000000"
+                             size="0x4000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB1"
+                             start="0x41000000"
+                             size="0x10000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB2"
+                             start="0x42000000"
+                             size="0x8000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB3"
+                             start="0x43000000"
+                             size="0x2000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB4"
+                             start="0x44000000"
+                             size="0x1000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PPB"
+                             start="0xE0000000"
+                             size="0x100000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="SCS"
+                             start="0xE000E000"
+                             size="0x00001000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PERIPHERALS"
+                             start="0x40000000"
+                             size="0x20000000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:interface type="swd" name="SWD"/>
+                  <at:tool id="com.atmel.avrdbg.tool.atmelice"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbgc"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagicemk3"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagice3plus"/>
+                  <at:tool id="com.atmel.avrdbg.tool.medbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.nedbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.pickit4"/>
+                  <at:tool id="com.atmel.avrdbg.tool.powerdebugger"/>
+                  <at:tool id="com.atmel.avrdbg.tool.samice"/>
+                  <at:project name="Barebone C Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.c)"/>
+                     </at:component>
+                  </at:project>
+                  <at:project name="Barebone Cpp Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.cpp)"/>
+                     </at:component>
+                  </at:project>
+                  <at:prerequisite context="compiling" Tcompiler="GCC" component="ARM-GCC"/>
+                  <at:prerequisite context="compiling" Tcompiler="IAR" component="ARM-IAR"/>
+                  <at:prerequisite context="compiling" Tcompiler="ARMCC" component="ARMCC"/>
+               </at:extension>
+            </environment>
+            <description>ARM Cortex-M0+ based ultra-low-power microcontroller with 128KB Flash, 24KB SRAM, 48 MHz, six 16-bit timer/counters, DMA, four SERCOMs, USB Host and Device, 10-channel 12-bit ADC, 2-channel 12-bit DAC, 32 pins</description>
+            <book name="https://www.microchip.com/wwwproducts/Devices.aspx?product=ATSAML21E17B"
+                  title="Device page for ATSAML21E17B"/>
+            <book name="https://www.microchip.com/wwwproducts/productds/ATSAML21E17B"
+                  title="Datasheet"/>
+         </device>
+         <device Dname="ATSAML21J17B">
+            <processor Dcore="Cortex-M0+"
+                       Dendian="Little-endian"
+                       Dmpu="NO_MPU"
+                       Dfpu="NO_FPU"/>
+            <compile header="saml21b/include/sam.h" define="__SAML21J17B__"/>
+            <debug svd="saml21b/svd/ATSAML21J17B.svd"/>
+            <memory id="IROM1"
+                    start="0x00000000"
+                    size="0x20000"
+                    default="1"
+                    startup="1"/>
+            <memory id="IROM2" start="0x00400000" size="0x1000"/>
+            <memory id="IRAM1" start="0x20000000" size="0x4000" default="1"/>
+            <memory id="IRAM2" start="0x30000000" size="0x2000"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21_128.FLM"
+                       start="0x00000000"
+                       size="0x20000"
+                       default="1"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21_128_EEPROM.FLM"
+                       start="0x00400000"
+                       size="0x01000"
+                       default="1"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/FlashOS.h"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvgui"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvopt"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvproj"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/FlashDev.c"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/FlashPrg.c"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/Target.lin"/>
+            <environment name="atmel">
+               <at:extension xmlns:at="http://www.atmel.com/schemas/pack-device-atmel-extension"
+                             schemaVersion="1.0">
+                  <at:atdf name="saml21b/atdf/ATSAML21J17B.atdf"/>
+                  <at:variant ordercode="SAML21J17B-MU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:variant ordercode="SAML21J17B-MN"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="105"/>
+                  <at:variant ordercode="SAML21J17B-AU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:variant ordercode="SAML21J17B-AN"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="105"/>
+                  <at:memory name="FLASH"
+                             start="0x00000000"
+                             size="0x20000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="CAL"
+                             start="0x00800000"
+                             size="0x8"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="LOCKBIT"
+                             start="0x00802000"
+                             size="0x4"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="AUX0"
+                             start="0x00804000"
+                             size="0x100"
+                             type="user_page"
+                             pagesize="64"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="AUX1"
+                             start="0x00806000"
+                             size="0x100"
+                             type="fuses"
+                             pagesize="64"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="RWW"
+                             start="0x00400000"
+                             size="0x1000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HSRAM"
+                             start="0x20000000"
+                             size="0x4000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="LPRAM"
+                             start="0x30000000"
+                             size="0x2000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HPB0"
+                             start="0x40000000"
+                             size="0x4000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB1"
+                             start="0x41000000"
+                             size="0x10000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB2"
+                             start="0x42000000"
+                             size="0x8000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB3"
+                             start="0x43000000"
+                             size="0x2000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB4"
+                             start="0x44000000"
+                             size="0x1000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PPB"
+                             start="0xE0000000"
+                             size="0x100000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="SCS"
+                             start="0xE000E000"
+                             size="0x00001000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PERIPHERALS"
+                             start="0x40000000"
+                             size="0x20000000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:interface type="swd" name="SWD"/>
+                  <at:tool id="com.atmel.avrdbg.tool.atmelice"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbgc"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagicemk3"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagice3plus"/>
+                  <at:tool id="com.atmel.avrdbg.tool.medbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.nedbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.pickit4"/>
+                  <at:tool id="com.atmel.avrdbg.tool.powerdebugger"/>
+                  <at:tool id="com.atmel.avrdbg.tool.samice"/>
+                  <at:project name="Barebone C Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.c)"/>
+                     </at:component>
+                  </at:project>
+                  <at:project name="Barebone Cpp Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.cpp)"/>
+                     </at:component>
+                  </at:project>
+                  <at:prerequisite context="compiling" Tcompiler="GCC" component="ARM-GCC"/>
+                  <at:prerequisite context="compiling" Tcompiler="IAR" component="ARM-IAR"/>
+                  <at:prerequisite context="compiling" Tcompiler="ARMCC" component="ARMCC"/>
+               </at:extension>
+            </environment>
+            <description>ARM Cortex-M0+ based ultra-low-power microcontroller with 128KB Flash, 24KB SRAM, 48 MHz, eight 16-bit timer/counters, DMA, six SERCOMs, USB Host and Device, 20-channel 12-bit ADC, 2-channel 12-bit DAC, 64 pins</description>
+            <book name="https://www.microchip.com/wwwproducts/Devices.aspx?product=ATSAML21J17B"
+                  title="Device page for ATSAML21J17B"/>
+            <book name="https://www.microchip.com/wwwproducts/productds/ATSAML21J17B"
+                  title="Datasheet"/>
+         </device>
+         <device Dname="ATSAML21J16B">
+            <processor Dcore="Cortex-M0+"
+                       Dendian="Little-endian"
+                       Dmpu="NO_MPU"
+                       Dfpu="NO_FPU"/>
+            <compile header="saml21b/include/sam.h" define="__SAML21J16B__"/>
+            <debug svd="saml21b/svd/ATSAML21J16B.svd"/>
+            <memory id="IROM1"
+                    start="0x00000000"
+                    size="0x10000"
+                    default="1"
+                    startup="1"/>
+            <memory id="IROM2" start="0x00400000" size="0x800"/>
+            <memory id="IRAM1" start="0x20000000" size="0x2000" default="1"/>
+            <memory id="IRAM2" start="0x30000000" size="0x1000"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21_64.FLM"
+                       start="0x00000000"
+                       size="0x10000"
+                       default="1"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21_64_EEPROM.FLM"
+                       start="0x00400000"
+                       size="0x00800"
+                       default="1"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/FlashOS.h"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvgui"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvopt"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvproj"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/FlashDev.c"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/FlashPrg.c"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/Target.lin"/>
+            <environment name="atmel">
+               <at:extension xmlns:at="http://www.atmel.com/schemas/pack-device-atmel-extension"
+                             schemaVersion="1.0">
+                  <at:atdf name="saml21b/atdf/ATSAML21J16B.atdf"/>
+                  <at:variant ordercode="SAML21J16B-MU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:variant ordercode="SAML21J16B-MN"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="105"/>
+                  <at:variant ordercode="SAML21J16B-AU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:variant ordercode="SAML21J16B-AN"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="105"/>
+                  <at:memory name="FLASH"
+                             start="0x00000000"
+                             size="0x10000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="CAL"
+                             start="0x00800000"
+                             size="0x8"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="LOCKBIT"
+                             start="0x00802000"
+                             size="0x4"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="AUX0"
+                             start="0x00804000"
+                             size="0x100"
+                             type="user_page"
+                             pagesize="64"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="AUX1"
+                             start="0x00806000"
+                             size="0x100"
+                             type="fuses"
+                             pagesize="64"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="RWW"
+                             start="0x00400000"
+                             size="0x800"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HSRAM"
+                             start="0x20000000"
+                             size="0x2000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="LPRAM"
+                             start="0x30000000"
+                             size="0x1000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HPB0"
+                             start="0x40000000"
+                             size="0x4000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB1"
+                             start="0x41000000"
+                             size="0x10000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB2"
+                             start="0x42000000"
+                             size="0x8000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB3"
+                             start="0x43000000"
+                             size="0x2000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB4"
+                             start="0x44000000"
+                             size="0x1000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PPB"
+                             start="0xE0000000"
+                             size="0x100000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="SCS"
+                             start="0xE000E000"
+                             size="0x00001000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PERIPHERALS"
+                             start="0x40000000"
+                             size="0x20000000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:interface type="swd" name="SWD"/>
+                  <at:tool id="com.atmel.avrdbg.tool.atmelice"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbgc"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagicemk3"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagice3plus"/>
+                  <at:tool id="com.atmel.avrdbg.tool.medbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.nedbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.pickit4"/>
+                  <at:tool id="com.atmel.avrdbg.tool.powerdebugger"/>
+                  <at:tool id="com.atmel.avrdbg.tool.samice"/>
+                  <at:project name="Barebone C Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.c)"/>
+                     </at:component>
+                  </at:project>
+                  <at:project name="Barebone Cpp Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.cpp)"/>
+                     </at:component>
+                  </at:project>
+                  <at:prerequisite context="compiling" Tcompiler="GCC" component="ARM-GCC"/>
+                  <at:prerequisite context="compiling" Tcompiler="IAR" component="ARM-IAR"/>
+                  <at:prerequisite context="compiling" Tcompiler="ARMCC" component="ARMCC"/>
+               </at:extension>
+            </environment>
+            <description>ARM Cortex-M0+ based ultra-low-power microcontroller with 64KB Flash, 12KB SRAM, 48 MHz, eight 16-bit timer/counters, DMA, six SERCOMs, USB Host and Device, 20-channel 12-bit ADC, 2-channel 12-bit DAC, 64 pins</description>
+            <book name="https://www.microchip.com/wwwproducts/Devices.aspx?product=ATSAML21J16B"
+                  title="Device page for ATSAML21J16B"/>
+            <book name="https://www.microchip.com/wwwproducts/productds/ATSAML21J16B"
+                  title="Datasheet"/>
+         </device>
+         <device Dname="ATSAML21J18A">
+            <processor Dcore="Cortex-M0+"
+                       Dendian="Little-endian"
+                       Dmpu="NO_MPU"
+                       Dfpu="NO_FPU"/>
+            <compile header="saml21a1/include/sam.h" define="__SAML21J18A__"/>
+            <debug svd="saml21a1/svd/ATSAML21J18A.svd"/>
+            <memory id="IROM1"
+                    start="0x00000000"
+                    size="0x40000"
+                    default="1"
+                    startup="1"/>
+            <memory id="IROM2" start="0x00400000" size="0x2000"/>
+            <memory id="IRAM1" start="0x20000000" size="0x8000" default="1"/>
+            <memory id="IRAM2" start="0x30000000" size="0x2000"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/ATSAML21_256.FLM"
+                       start="0x00000000"
+                       size="0x40000"
+                       default="1"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/ATSAML21_256_EEPROM.FLM"
+                       start="0x00400000"
+                       size="0x02000"
+                       default="1"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/FlashOS.h"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/ATSAML21/ATSAML21.uvgui"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/ATSAML21/ATSAML21.uvopt"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/ATSAML21/ATSAML21.uvproj"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/ATSAML21/FlashDev.c"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/ATSAML21/FlashPrg.c"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/ATSAML21/Target.lin"/>
+            <environment name="atmel">
+               <at:extension xmlns:at="http://www.atmel.com/schemas/pack-device-atmel-extension"
+                             schemaVersion="1.0">
+                  <at:atdf name="saml21a1/atdf/ATSAML21J18A.atdf"/>
+                  <at:variant ordercode="SAML21J18A-MU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:variant ordercode="SAML21J18A-AU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:memory name="FLASH"
+                             start="0x00000000"
+                             size="0x40000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="CAL"
+                             start="0x00800000"
+                             size="0x8"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="LOCKBIT"
+                             start="0x00802000"
+                             size="0x4"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="AUX0"
+                             start="0x00804000"
+                             size="0x100"
+                             type="user_page"
+                             pagesize="64"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="AUX1"
+                             start="0x00806000"
+                             size="0x100"
+                             type="fuses"
+                             pagesize="64"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="RWW"
+                             start="0x00400000"
+                             size="0x2000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HSRAM"
+                             start="0x20000000"
+                             size="0x8000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="LPRAM"
+                             start="0x30000000"
+                             size="0x2000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HPB0"
+                             start="0x40000000"
+                             size="0x4000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB1"
+                             start="0x41000000"
+                             size="0x10000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB2"
+                             start="0x42000000"
+                             size="0x8000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB3"
+                             start="0x43000000"
+                             size="0x2000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB4"
+                             start="0x44000000"
+                             size="0x1000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PPB"
+                             start="0xE0000000"
+                             size="0x100000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="SCS"
+                             start="0xE000E000"
+                             size="0x00001000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PERIPHERALS"
+                             start="0x40000000"
+                             size="0x20000000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:interface type="swd" name="SWD"/>
+                  <at:tool id="com.atmel.avrdbg.tool.atmelice"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbgc"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagicemk3"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagice3plus"/>
+                  <at:tool id="com.atmel.avrdbg.tool.medbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.nedbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.pickit4"/>
+                  <at:tool id="com.atmel.avrdbg.tool.powerdebugger"/>
+                  <at:tool id="com.atmel.avrdbg.tool.samice"/>
+                  <at:project name="Barebone C Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.c)"/>
+                     </at:component>
+                  </at:project>
+                  <at:project name="Barebone Cpp Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.cpp)"/>
+                     </at:component>
+                  </at:project>
+                  <at:prerequisite context="compiling" Tcompiler="GCC" component="ARM-GCC"/>
+                  <at:prerequisite context="compiling" Tcompiler="IAR" component="ARM-IAR"/>
+                  <at:prerequisite context="compiling" Tcompiler="ARMCC" component="ARMCC"/>
+               </at:extension>
+            </environment>
+            <book name="https://www.microchip.com/wwwproducts/Devices.aspx?product=ATSAML21J18A"
+                  title="Device page for ATSAML21J18A"/>
+            <book name="https://www.microchip.com/wwwproducts/productds/ATSAML21J18A"
+                  title="Datasheet"/>
+         </device>
+         <device Dname="ATSAML21J18B">
+            <processor Dcore="Cortex-M0+"
+                       Dendian="Little-endian"
+                       Dmpu="NO_MPU"
+                       Dfpu="NO_FPU"/>
+            <compile header="saml21b/include/sam.h" define="__SAML21J18B__"/>
+            <debug svd="saml21b/svd/ATSAML21J18B.svd"/>
+            <memory id="IROM1"
+                    start="0x00000000"
+                    size="0x40000"
+                    default="1"
+                    startup="1"/>
+            <memory id="IROM2" start="0x00400000" size="0x2000"/>
+            <memory id="IRAM1" start="0x20000000" size="0x8000" default="1"/>
+            <memory id="IRAM2" start="0x30000000" size="0x2000"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21_256.FLM"
+                       start="0x00000000"
+                       size="0x40000"
+                       default="1"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21_256_EEPROM.FLM"
+                       start="0x00400000"
+                       size="0x02000"
+                       default="1"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/FlashOS.h"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvgui"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvopt"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvproj"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/FlashDev.c"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/FlashPrg.c"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/Target.lin"/>
+            <environment name="atmel">
+               <at:extension xmlns:at="http://www.atmel.com/schemas/pack-device-atmel-extension"
+                             schemaVersion="1.0">
+                  <at:atdf name="saml21b/atdf/ATSAML21J18B.atdf"/>
+                  <at:variant ordercode="SAML21J18B-MU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:variant ordercode="SAML21J18B-MN"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="105"/>
+                  <at:variant ordercode="SAML21J18B-AU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:variant ordercode="SAML21J18B-AN"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="105"/>
+                  <at:memory name="FLASH"
+                             start="0x00000000"
+                             size="0x40000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="CAL"
+                             start="0x00800000"
+                             size="0x8"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="LOCKBIT"
+                             start="0x00802000"
+                             size="0x4"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="AUX0"
+                             start="0x00804000"
+                             size="0x100"
+                             type="user_page"
+                             pagesize="64"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="AUX1"
+                             start="0x00806000"
+                             size="0x100"
+                             type="fuses"
+                             pagesize="64"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="RWW"
+                             start="0x00400000"
+                             size="0x2000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HSRAM"
+                             start="0x20000000"
+                             size="0x8000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="LPRAM"
+                             start="0x30000000"
+                             size="0x2000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HPB0"
+                             start="0x40000000"
+                             size="0x4000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB1"
+                             start="0x41000000"
+                             size="0x10000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB2"
+                             start="0x42000000"
+                             size="0x8000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB3"
+                             start="0x43000000"
+                             size="0x2000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB4"
+                             start="0x44000000"
+                             size="0x1000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PPB"
+                             start="0xE0000000"
+                             size="0x100000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="SCS"
+                             start="0xE000E000"
+                             size="0x00001000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PERIPHERALS"
+                             start="0x40000000"
+                             size="0x20000000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:interface type="swd" name="SWD"/>
+                  <at:tool id="com.atmel.avrdbg.tool.atmelice"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbgc"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagicemk3"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagice3plus"/>
+                  <at:tool id="com.atmel.avrdbg.tool.medbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.nedbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.pickit4"/>
+                  <at:tool id="com.atmel.avrdbg.tool.powerdebugger"/>
+                  <at:tool id="com.atmel.avrdbg.tool.samice"/>
+                  <at:project name="Barebone C Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.c)"/>
+                     </at:component>
+                  </at:project>
+                  <at:project name="Barebone Cpp Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.cpp)"/>
+                     </at:component>
+                  </at:project>
+                  <at:prerequisite context="compiling" Tcompiler="GCC" component="ARM-GCC"/>
+                  <at:prerequisite context="compiling" Tcompiler="IAR" component="ARM-IAR"/>
+                  <at:prerequisite context="compiling" Tcompiler="ARMCC" component="ARMCC"/>
+               </at:extension>
+            </environment>
+            <book name="https://www.microchip.com/wwwproducts/Devices.aspx?product=ATSAML21J18B"
+                  title="Device page for ATSAML21J18B"/>
+            <book name="https://www.microchip.com/wwwproducts/productds/ATSAML21J18B"
+                  title="Datasheet"/>
+         </device>
+         <device Dname="ATSAML21J17BU">
+            <processor Dcore="Cortex-M0+"
+                       Dendian="Little-endian"
+                       Dmpu="NO_MPU"
+                       Dfpu="NO_FPU"/>
+            <compile header="saml21b/include/sam.h" define="__SAML21J17BU__"/>
+            <debug svd="saml21b/svd/ATSAML21J17BU.svd"/>
+            <memory id="IROM1"
+                    start="0x00000000"
+                    size="0x20000"
+                    default="1"
+                    startup="1"/>
+            <memory id="IROM2" start="0x00400000" size="0x1000"/>
+            <memory id="IRAM1" start="0x20000000" size="0x4000" default="1"/>
+            <memory id="IRAM2" start="0x30000000" size="0x2000"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21_128.FLM"
+                       start="0x00000000"
+                       size="0x20000"
+                       default="1"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21_128_EEPROM.FLM"
+                       start="0x00400000"
+                       size="0x01000"
+                       default="1"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/FlashOS.h"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvgui"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvopt"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvproj"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/FlashDev.c"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/FlashPrg.c"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/Target.lin"/>
+            <environment name="atmel">
+               <at:extension xmlns:at="http://www.atmel.com/schemas/pack-device-atmel-extension"
+                             schemaVersion="1.0">
+                  <at:atdf name="saml21b/atdf/ATSAML21J17BU.atdf"/>
+                  <at:variant ordercode="SAML21J17B-UU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:memory name="FLASH"
+                             start="0x00000000"
+                             size="0x20000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="CAL"
+                             start="0x00800000"
+                             size="0x8"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="LOCKBIT"
+                             start="0x00802000"
+                             size="0x4"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="AUX0"
+                             start="0x00804000"
+                             size="0x100"
+                             type="user_page"
+                             pagesize="64"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="AUX1"
+                             start="0x00806000"
+                             size="0x100"
+                             type="fuses"
+                             pagesize="64"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="RWW"
+                             start="0x00400000"
+                             size="0x1000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HSRAM"
+                             start="0x20000000"
+                             size="0x4000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="LPRAM"
+                             start="0x30000000"
+                             size="0x2000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HPB0"
+                             start="0x40000000"
+                             size="0x4000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB1"
+                             start="0x41000000"
+                             size="0x10000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB2"
+                             start="0x42000000"
+                             size="0x8000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB3"
+                             start="0x43000000"
+                             size="0x2000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB4"
+                             start="0x44000000"
+                             size="0x1000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PPB"
+                             start="0xE0000000"
+                             size="0x100000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="SCS"
+                             start="0xE000E000"
+                             size="0x00001000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PERIPHERALS"
+                             start="0x40000000"
+                             size="0x20000000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:interface type="swd" name="SWD"/>
+                  <at:tool id="com.atmel.avrdbg.tool.atmelice"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbgc"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagicemk3"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagice3plus"/>
+                  <at:tool id="com.atmel.avrdbg.tool.medbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.nedbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.pickit4"/>
+                  <at:tool id="com.atmel.avrdbg.tool.powerdebugger"/>
+                  <at:tool id="com.atmel.avrdbg.tool.samice"/>
+                  <at:project name="Barebone C Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.c)"/>
+                     </at:component>
+                  </at:project>
+                  <at:project name="Barebone Cpp Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.cpp)"/>
+                     </at:component>
+                  </at:project>
+                  <at:prerequisite context="compiling" Tcompiler="GCC" component="ARM-GCC"/>
+                  <at:prerequisite context="compiling" Tcompiler="IAR" component="ARM-IAR"/>
+                  <at:prerequisite context="compiling" Tcompiler="ARMCC" component="ARMCC"/>
+               </at:extension>
+            </environment>
+            <book name="https://www.microchip.com/wwwproducts/Devices.aspx?product=ATSAML21J17BU"
+                  title="Device page for ATSAML21J17BU"/>
+            <book name="https://www.microchip.com/wwwproducts/productds/ATSAML21J17BU"
+                  title="Datasheet"/>
+         </device>
+         <device Dname="ATSAML21E18A">
+            <processor Dcore="Cortex-M0+"
+                       Dendian="Little-endian"
+                       Dmpu="NO_MPU"
+                       Dfpu="NO_FPU"/>
+            <compile header="saml21a1/include/sam.h" define="__SAML21E18A__"/>
+            <debug svd="saml21a1/svd/ATSAML21E18A.svd"/>
+            <memory id="IROM1"
+                    start="0x00000000"
+                    size="0x40000"
+                    default="1"
+                    startup="1"/>
+            <memory id="IROM2" start="0x00400000" size="0x2000"/>
+            <memory id="IRAM1" start="0x20000000" size="0x8000" default="1"/>
+            <memory id="IRAM2" start="0x30000000" size="0x2000"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/ATSAML21_256.FLM"
+                       start="0x00000000"
+                       size="0x40000"
+                       default="1"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/ATSAML21_256_EEPROM.FLM"
+                       start="0x00400000"
+                       size="0x02000"
+                       default="1"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/FlashOS.h"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/ATSAML21/ATSAML21.uvgui"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/ATSAML21/ATSAML21.uvopt"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/ATSAML21/ATSAML21.uvproj"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/ATSAML21/FlashDev.c"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/ATSAML21/FlashPrg.c"/>
+            <algorithm name="saml21a1/keil/flashloader/Flash/ATSAML21/Target.lin"/>
+            <environment name="atmel">
+               <at:extension xmlns:at="http://www.atmel.com/schemas/pack-device-atmel-extension"
+                             schemaVersion="1.0">
+                  <at:atdf name="saml21a1/atdf/ATSAML21E18A.atdf"/>
+                  <at:variant ordercode="SAML21E18A-AU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:memory name="FLASH"
+                             start="0x00000000"
+                             size="0x40000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="CAL"
+                             start="0x00800000"
+                             size="0x8"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="LOCKBIT"
+                             start="0x00802000"
+                             size="0x4"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="AUX0"
+                             start="0x00804000"
+                             size="0x100"
+                             type="user_page"
+                             pagesize="64"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="AUX1"
+                             start="0x00806000"
+                             size="0x100"
+                             type="fuses"
+                             pagesize="64"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="RWW"
+                             start="0x00400000"
+                             size="0x2000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HSRAM"
+                             start="0x20000000"
+                             size="0x8000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="LPRAM"
+                             start="0x30000000"
+                             size="0x2000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HPB0"
+                             start="0x40000000"
+                             size="0x4000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB1"
+                             start="0x41000000"
+                             size="0x10000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB2"
+                             start="0x42000000"
+                             size="0x8000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB3"
+                             start="0x43000000"
+                             size="0x2000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB4"
+                             start="0x44000000"
+                             size="0x1000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PPB"
+                             start="0xE0000000"
+                             size="0x100000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="SCS"
+                             start="0xE000E000"
+                             size="0x00001000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PERIPHERALS"
+                             start="0x40000000"
+                             size="0x20000000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:interface type="swd" name="SWD"/>
+                  <at:tool id="com.atmel.avrdbg.tool.atmelice"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbgc"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagicemk3"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagice3plus"/>
+                  <at:tool id="com.atmel.avrdbg.tool.medbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.nedbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.pickit4"/>
+                  <at:tool id="com.atmel.avrdbg.tool.powerdebugger"/>
+                  <at:tool id="com.atmel.avrdbg.tool.samice"/>
+                  <at:project name="Barebone C Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.c)"/>
+                     </at:component>
+                  </at:project>
+                  <at:project name="Barebone Cpp Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.cpp)"/>
+                     </at:component>
+                  </at:project>
+                  <at:prerequisite context="compiling" Tcompiler="GCC" component="ARM-GCC"/>
+                  <at:prerequisite context="compiling" Tcompiler="IAR" component="ARM-IAR"/>
+                  <at:prerequisite context="compiling" Tcompiler="ARMCC" component="ARMCC"/>
+               </at:extension>
+            </environment>
+            <book name="https://www.microchip.com/wwwproducts/Devices.aspx?product=ATSAML21E18A"
+                  title="Device page for ATSAML21E18A"/>
+            <book name="https://www.microchip.com/wwwproducts/productds/ATSAML21E18A"
+                  title="Datasheet"/>
+         </device>
+         <device Dname="ATSAML21J18BU">
+            <processor Dcore="Cortex-M0+"
+                       Dendian="Little-endian"
+                       Dmpu="NO_MPU"
+                       Dfpu="NO_FPU"/>
+            <compile header="saml21b/include/sam.h" define="__SAML21J18BU__"/>
+            <debug svd="saml21b/svd/ATSAML21J18BU.svd"/>
+            <memory id="IROM1"
+                    start="0x00000000"
+                    size="0x40000"
+                    default="1"
+                    startup="1"/>
+            <memory id="IROM2" start="0x00400000" size="0x2000"/>
+            <memory id="IRAM1" start="0x20000000" size="0x8000" default="1"/>
+            <memory id="IRAM2" start="0x30000000" size="0x2000"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21_256.FLM"
+                       start="0x00000000"
+                       size="0x40000"
+                       default="1"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21_256_EEPROM.FLM"
+                       start="0x00400000"
+                       size="0x02000"
+                       default="1"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/FlashOS.h"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvgui"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvopt"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvproj"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/FlashDev.c"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/FlashPrg.c"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/Target.lin"/>
+            <environment name="atmel">
+               <at:extension xmlns:at="http://www.atmel.com/schemas/pack-device-atmel-extension"
+                             schemaVersion="1.0">
+                  <at:atdf name="saml21b/atdf/ATSAML21J18BU.atdf"/>
+                  <at:variant ordercode="SAML21J18B-UU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:memory name="FLASH"
+                             start="0x00000000"
+                             size="0x40000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="CAL"
+                             start="0x00800000"
+                             size="0x8"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="LOCKBIT"
+                             start="0x00802000"
+                             size="0x4"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="AUX0"
+                             start="0x00804000"
+                             size="0x100"
+                             type="user_page"
+                             pagesize="64"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="AUX1"
+                             start="0x00806000"
+                             size="0x100"
+                             type="fuses"
+                             pagesize="64"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="RWW"
+                             start="0x00400000"
+                             size="0x2000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HSRAM"
+                             start="0x20000000"
+                             size="0x8000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="LPRAM"
+                             start="0x30000000"
+                             size="0x2000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HPB0"
+                             start="0x40000000"
+                             size="0x4000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB1"
+                             start="0x41000000"
+                             size="0x10000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB2"
+                             start="0x42000000"
+                             size="0x8000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB3"
+                             start="0x43000000"
+                             size="0x2000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB4"
+                             start="0x44000000"
+                             size="0x1000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PPB"
+                             start="0xE0000000"
+                             size="0x100000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="SCS"
+                             start="0xE000E000"
+                             size="0x00001000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PERIPHERALS"
+                             start="0x40000000"
+                             size="0x20000000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:interface type="swd" name="SWD"/>
+                  <at:tool id="com.atmel.avrdbg.tool.atmelice"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbgc"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagicemk3"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagice3plus"/>
+                  <at:tool id="com.atmel.avrdbg.tool.medbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.nedbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.pickit4"/>
+                  <at:tool id="com.atmel.avrdbg.tool.powerdebugger"/>
+                  <at:tool id="com.atmel.avrdbg.tool.samice"/>
+                  <at:project name="Barebone C Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.c)"/>
+                     </at:component>
+                  </at:project>
+                  <at:project name="Barebone Cpp Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.cpp)"/>
+                     </at:component>
+                  </at:project>
+                  <at:prerequisite context="compiling" Tcompiler="GCC" component="ARM-GCC"/>
+                  <at:prerequisite context="compiling" Tcompiler="IAR" component="ARM-IAR"/>
+                  <at:prerequisite context="compiling" Tcompiler="ARMCC" component="ARMCC"/>
+               </at:extension>
+            </environment>
+            <book name="https://www.microchip.com/wwwproducts/Devices.aspx?product=ATSAML21J18BU"
+                  title="Device page for ATSAML21J18BU"/>
+            <book name="https://www.microchip.com/wwwproducts/productds/ATSAML21J18BU"
+                  title="Datasheet"/>
+         </device>
+         <device Dname="ATSAML21E18B">
+            <processor Dcore="Cortex-M0+"
+                       Dendian="Little-endian"
+                       Dmpu="NO_MPU"
+                       Dfpu="NO_FPU"/>
+            <compile header="saml21b/include/sam.h" define="__SAML21E18B__"/>
+            <debug svd="saml21b/svd/ATSAML21E18B.svd"/>
+            <memory id="IROM1"
+                    start="0x00000000"
+                    size="0x40000"
+                    default="1"
+                    startup="1"/>
+            <memory id="IROM2" start="0x00400000" size="0x2000"/>
+            <memory id="IRAM1" start="0x20000000" size="0x8000" default="1"/>
+            <memory id="IRAM2" start="0x30000000" size="0x2000"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21_256.FLM"
+                       start="0x00000000"
+                       size="0x40000"
+                       default="1"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21_256_EEPROM.FLM"
+                       start="0x00400000"
+                       size="0x02000"
+                       default="1"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/FlashOS.h"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvgui"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvopt"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/ATSAML21.uvproj"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/FlashDev.c"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/FlashPrg.c"/>
+            <algorithm name="saml21b/keil/flashloader/Flash/ATSAML21/Target.lin"/>
+            <environment name="atmel">
+               <at:extension xmlns:at="http://www.atmel.com/schemas/pack-device-atmel-extension"
+                             schemaVersion="1.0">
+                  <at:atdf name="saml21b/atdf/ATSAML21E18B.atdf"/>
+                  <at:variant ordercode="SAML21E18B-MU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:variant ordercode="SAML21E18B-MN"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="105"/>
+                  <at:variant ordercode="SAML21E18B-AU"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="85"/>
+                  <at:variant ordercode="SAML21E18B-AN"
+                              vccmin="1.62"
+                              vccmax="3.63"
+                              tempmin="-40"
+                              tempmax="105"/>
+                  <at:memory name="FLASH"
+                             start="0x00000000"
+                             size="0x40000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="CAL"
+                             start="0x00800000"
+                             size="0x8"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="LOCKBIT"
+                             start="0x00802000"
+                             size="0x4"
+                             type="fuses"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="AUX0"
+                             start="0x00804000"
+                             size="0x100"
+                             type="user_page"
+                             pagesize="64"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="AUX1"
+                             start="0x00806000"
+                             size="0x100"
+                             type="fuses"
+                             pagesize="64"
+                             rw="R"
+                             address-space="base"/>
+                  <at:memory name="RWW"
+                             start="0x00400000"
+                             size="0x2000"
+                             type="flash"
+                             pagesize="64"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HSRAM"
+                             start="0x20000000"
+                             size="0x8000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="LPRAM"
+                             start="0x30000000"
+                             size="0x2000"
+                             type="ram"
+                             rw="RW"
+                             exec="true"
+                             address-space="base"/>
+                  <at:memory name="HPB0"
+                             start="0x40000000"
+                             size="0x4000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB1"
+                             start="0x41000000"
+                             size="0x10000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB2"
+                             start="0x42000000"
+                             size="0x8000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB3"
+                             start="0x43000000"
+                             size="0x2000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="HPB4"
+                             start="0x44000000"
+                             size="0x1000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PPB"
+                             start="0xE0000000"
+                             size="0x100000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="SCS"
+                             start="0xE000E000"
+                             size="0x00001000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:memory name="PERIPHERALS"
+                             start="0x40000000"
+                             size="0x20000000"
+                             type="io"
+                             rw="RW"
+                             address-space="base"/>
+                  <at:interface type="swd" name="SWD"/>
+                  <at:tool id="com.atmel.avrdbg.tool.atmelice"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbgc"/>
+                  <at:tool id="com.atmel.avrdbg.tool.edbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagicemk3"/>
+                  <at:tool id="com.atmel.avrdbg.tool.jtagice3plus"/>
+                  <at:tool id="com.atmel.avrdbg.tool.medbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.nedbg"/>
+                  <at:tool id="com.atmel.avrdbg.tool.pickit4"/>
+                  <at:tool id="com.atmel.avrdbg.tool.powerdebugger"/>
+                  <at:tool id="com.atmel.avrdbg.tool.samice"/>
+                  <at:project name="Barebone C Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.c)"/>
+                     </at:component>
+                  </at:project>
+                  <at:project name="Barebone Cpp Project">
+                     <at:component Cvendor="ARM" Cclass="CMSIS" Cgroup="CORE"/>
+                     <at:component Cvendor="Atmel" Cclass="Device" Cgroup="Startup">
+                        <at:template select="Main file (.cpp)"/>
+                     </at:component>
+                  </at:project>
+                  <at:prerequisite context="compiling" Tcompiler="GCC" component="ARM-GCC"/>
+                  <at:prerequisite context="compiling" Tcompiler="IAR" component="ARM-IAR"/>
+                  <at:prerequisite context="compiling" Tcompiler="ARMCC" component="ARMCC"/>
+               </at:extension>
+            </environment>
+            <description>ARM Cortex-M0+ based ultra-low-power microcontroller with 256KB Flash, 40KB SRAM, 48 MHz, six 16-bit timer/counters, DMA, four SERCOMs, USB Host and Device, 10-channel 12-bit ADC, 2-channel 12-bit DAC, 32 pins</description>
+            <book name="https://www.microchip.com/wwwproducts/Devices.aspx?product=ATSAML21E18B"
+                  title="Device page for ATSAML21E18B"/>
+            <book name="https://www.microchip.com/wwwproducts/productds/ATSAML21E18B"
+                  title="Datasheet"/>
+         </device>
+      </family>
+   </devices>
+   <conditions>
+      <condition id="ARMCC">
+         <accept Tcompiler="ARMCC"/>
+      </condition>
+      <condition id="ARMCC Exe">
+         <accept Tcompiler="ARMCC" Toutput="exe"/>
+      </condition>
+      <condition id="GCC">
+         <accept Tcompiler="GCC"/>
+      </condition>
+      <condition id="GCC Exe">
+         <accept Tcompiler="GCC" Toutput="exe"/>
+      </condition>
+      <condition id="IAR">
+         <accept Tcompiler="IAR"/>
+      </condition>
+      <condition id="IAR Exe">
+         <accept Tcompiler="IAR" Toutput="exe"/>
+      </condition>
+      <condition id="C">
+         <accept Tcompiler="ARMCC"/>
+         <accept Tcompiler="GCC"/>
+         <accept Tcompiler="IAR"/>
+      </condition>
+      <condition id="C Exe">
+         <accept Tcompiler="ARMCC" Toutput="exe"/>
+         <accept Tcompiler="GCC" Toutput="exe"/>
+         <accept Tcompiler="IAR" Toutput="exe"/>
+      </condition>
+      <condition id="C Lib">
+         <accept Tcompiler="ARMCC" Toutput="lib"/>
+         <accept Tcompiler="GCC" Toutput="lib"/>
+         <accept Tcompiler="IAR" Toutput="lib"/>
+      </condition>
+      <condition id="ATSAML21G16B">
+         <require Dvendor="Atmel:3" Dname="ATSAML21G16B"/>
+         <require Cclass="CMSIS" Cgroup="CORE"/>
+      </condition>
+      <condition id="ATSAML21G17B">
+         <require Dvendor="Atmel:3" Dname="ATSAML21G17B"/>
+         <require Cclass="CMSIS" Cgroup="CORE"/>
+      </condition>
+      <condition id="ATSAML21G18B">
+         <require Dvendor="Atmel:3" Dname="ATSAML21G18B"/>
+         <require Cclass="CMSIS" Cgroup="CORE"/>
+      </condition>
+      <condition id="ATSAML21G18A">
+         <require Dvendor="Atmel:3" Dname="ATSAML21G18A"/>
+         <require Cclass="CMSIS" Cgroup="CORE"/>
+      </condition>
+      <condition id="ATSAML21E15B">
+         <require Dvendor="Atmel:3" Dname="ATSAML21E15B"/>
+         <require Cclass="CMSIS" Cgroup="CORE"/>
+      </condition>
+      <condition id="ATSAML21E16B">
+         <require Dvendor="Atmel:3" Dname="ATSAML21E16B"/>
+         <require Cclass="CMSIS" Cgroup="CORE"/>
+      </condition>
+      <condition id="ATSAML21E17B">
+         <require Dvendor="Atmel:3" Dname="ATSAML21E17B"/>
+         <require Cclass="CMSIS" Cgroup="CORE"/>
+      </condition>
+      <condition id="ATSAML21J17B">
+         <require Dvendor="Atmel:3" Dname="ATSAML21J17B"/>
+         <require Cclass="CMSIS" Cgroup="CORE"/>
+      </condition>
+      <condition id="ATSAML21J16B">
+         <require Dvendor="Atmel:3" Dname="ATSAML21J16B"/>
+         <require Cclass="CMSIS" Cgroup="CORE"/>
+      </condition>
+      <condition id="ATSAML21J18A">
+         <require Dvendor="Atmel:3" Dname="ATSAML21J18A"/>
+         <require Cclass="CMSIS" Cgroup="CORE"/>
+      </condition>
+      <condition id="ATSAML21J18B">
+         <require Dvendor="Atmel:3" Dname="ATSAML21J18B"/>
+         <require Cclass="CMSIS" Cgroup="CORE"/>
+      </condition>
+      <condition id="ATSAML21J17BU">
+         <require Dvendor="Atmel:3" Dname="ATSAML21J17BU"/>
+         <require Cclass="CMSIS" Cgroup="CORE"/>
+      </condition>
+      <condition id="ATSAML21E18A">
+         <require Dvendor="Atmel:3" Dname="ATSAML21E18A"/>
+         <require Cclass="CMSIS" Cgroup="CORE"/>
+      </condition>
+      <condition id="ATSAML21J18BU">
+         <require Dvendor="Atmel:3" Dname="ATSAML21J18BU"/>
+         <require Cclass="CMSIS" Cgroup="CORE"/>
+      </condition>
+      <condition id="ATSAML21E18B">
+         <require Dvendor="Atmel:3" Dname="ATSAML21E18B"/>
+         <require Cclass="CMSIS" Cgroup="CORE"/>
+      </condition>
+   </conditions>
+   <components>
+      <component Cvendor="Atmel"
+                 Cclass="Device"
+                 Cgroup="Startup"
+                 Cversion="1.2.0"
+                 condition="ATSAML21G16B">
+         <description>Headers and startup code for Atmel ATSAML21G16B</description>
+         <files>
+            <file condition="C" category="include" name="saml21b/include"/>
+            <file condition="C" category="header" name="saml21b/include/sam.h"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21b/templates/main.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21b/templates/main.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21b/templates/library.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21b/templates/library.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21b/gcc/system_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21b/gcc/gcc/startup_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="linkerScript"
+                  name="saml21b/gcc/gcc/saml21g16b_flash.ld"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="other"
+                  name="saml21b/gcc/gcc/saml21g16b_sram.ld"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21b/armcc/Device/SAML21B/Source/system_saml21.c"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21b/armcc/Device/SAML21B/Source/ARM/startup_SAML21.s"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21b/iar/system_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21b/iar/iar/startup_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="linkerScript"
+                  name="saml21b/iar/iar/saml21g16b_flash.icf"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="other"
+                  name="saml21b/iar/iar/saml21g16b_sram.icf"
+                  attr="config"/>
+         </files>
+      </component>
+      <component Cvendor="Atmel"
+                 Cclass="Device"
+                 Cgroup="Startup"
+                 Cversion="1.2.0"
+                 condition="ATSAML21G17B">
+         <description>Headers and startup code for Atmel ATSAML21G17B</description>
+         <files>
+            <file condition="C" category="include" name="saml21b/include"/>
+            <file condition="C" category="header" name="saml21b/include/sam.h"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21b/templates/main.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21b/templates/main.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21b/templates/library.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21b/templates/library.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21b/gcc/system_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21b/gcc/gcc/startup_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="linkerScript"
+                  name="saml21b/gcc/gcc/saml21g17b_flash.ld"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="other"
+                  name="saml21b/gcc/gcc/saml21g17b_sram.ld"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21b/armcc/Device/SAML21B/Source/system_saml21.c"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21b/armcc/Device/SAML21B/Source/ARM/startup_SAML21.s"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21b/iar/system_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21b/iar/iar/startup_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="linkerScript"
+                  name="saml21b/iar/iar/saml21g17b_flash.icf"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="other"
+                  name="saml21b/iar/iar/saml21g17b_sram.icf"
+                  attr="config"/>
+         </files>
+      </component>
+      <component Cvendor="Atmel"
+                 Cclass="Device"
+                 Cgroup="Startup"
+                 Cversion="1.2.0"
+                 condition="ATSAML21G18B">
+         <description>Headers and startup code for Atmel ATSAML21G18B</description>
+         <files>
+            <file condition="C" category="include" name="saml21b/include"/>
+            <file condition="C" category="header" name="saml21b/include/sam.h"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21b/templates/main.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21b/templates/main.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21b/templates/library.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21b/templates/library.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21b/gcc/system_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21b/gcc/gcc/startup_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="linkerScript"
+                  name="saml21b/gcc/gcc/saml21g18b_flash.ld"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="other"
+                  name="saml21b/gcc/gcc/saml21g18b_sram.ld"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21b/armcc/Device/SAML21B/Source/system_saml21.c"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21b/armcc/Device/SAML21B/Source/ARM/startup_SAML21.s"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21b/iar/system_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21b/iar/iar/startup_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="linkerScript"
+                  name="saml21b/iar/iar/saml21g18b_flash.icf"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="other"
+                  name="saml21b/iar/iar/saml21g18b_sram.icf"
+                  attr="config"/>
+         </files>
+      </component>
+      <component Cvendor="Atmel"
+                 Cclass="Device"
+                 Cgroup="Startup"
+                 Cversion="1.2.0"
+                 condition="ATSAML21G18A">
+         <description>Headers and startup code for Atmel ATSAML21G18A</description>
+         <files>
+            <file condition="C" category="include" name="saml21a1/include"/>
+            <file condition="C" category="header" name="saml21a1/include/sam.h"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21a1/templates/main.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21a1/templates/main.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21a1/templates/library.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21a1/templates/library.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21a1/gcc/system_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21a1/gcc/gcc/startup_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="linkerScript"
+                  name="saml21a1/gcc/gcc/saml21g18a_flash.ld"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="other"
+                  name="saml21a1/gcc/gcc/saml21g18a_sram.ld"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21a1/armcc/Device/SAML21A1/Source/system_saml21.c"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21a1/armcc/Device/SAML21A1/Source/ARM/startup_SAML21.s"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21a1/iar/system_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21a1/iar/iar/startup_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="linkerScript"
+                  name="saml21a1/iar/iar/saml21g18a_flash.icf"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="other"
+                  name="saml21a1/iar/iar/saml21g18a_sram.icf"
+                  attr="config"/>
+         </files>
+      </component>
+      <component Cvendor="Atmel"
+                 Cclass="Device"
+                 Cgroup="Startup"
+                 Cversion="1.2.0"
+                 condition="ATSAML21E15B">
+         <description>Headers and startup code for Atmel ATSAML21E15B</description>
+         <files>
+            <file condition="C" category="include" name="saml21b/include"/>
+            <file condition="C" category="header" name="saml21b/include/sam.h"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21b/templates/main.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21b/templates/main.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21b/templates/library.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21b/templates/library.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21b/gcc/system_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21b/gcc/gcc/startup_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="linkerScript"
+                  name="saml21b/gcc/gcc/saml21e15b_flash.ld"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="other"
+                  name="saml21b/gcc/gcc/saml21e15b_sram.ld"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21b/armcc/Device/SAML21B/Source/system_saml21.c"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21b/armcc/Device/SAML21B/Source/ARM/startup_SAML21.s"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21b/iar/system_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21b/iar/iar/startup_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="linkerScript"
+                  name="saml21b/iar/iar/saml21e15b_flash.icf"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="other"
+                  name="saml21b/iar/iar/saml21e15b_sram.icf"
+                  attr="config"/>
+         </files>
+      </component>
+      <component Cvendor="Atmel"
+                 Cclass="Device"
+                 Cgroup="Startup"
+                 Cversion="1.2.0"
+                 condition="ATSAML21E16B">
+         <description>Headers and startup code for Atmel ATSAML21E16B</description>
+         <files>
+            <file condition="C" category="include" name="saml21b/include"/>
+            <file condition="C" category="header" name="saml21b/include/sam.h"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21b/templates/main.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21b/templates/main.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21b/templates/library.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21b/templates/library.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21b/gcc/system_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21b/gcc/gcc/startup_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="linkerScript"
+                  name="saml21b/gcc/gcc/saml21e16b_flash.ld"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="other"
+                  name="saml21b/gcc/gcc/saml21e16b_sram.ld"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21b/armcc/Device/SAML21B/Source/system_saml21.c"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21b/armcc/Device/SAML21B/Source/ARM/startup_SAML21.s"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21b/iar/system_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21b/iar/iar/startup_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="linkerScript"
+                  name="saml21b/iar/iar/saml21e16b_flash.icf"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="other"
+                  name="saml21b/iar/iar/saml21e16b_sram.icf"
+                  attr="config"/>
+         </files>
+      </component>
+      <component Cvendor="Atmel"
+                 Cclass="Device"
+                 Cgroup="Startup"
+                 Cversion="1.2.0"
+                 condition="ATSAML21E17B">
+         <description>Headers and startup code for Atmel ATSAML21E17B</description>
+         <files>
+            <file condition="C" category="include" name="saml21b/include"/>
+            <file condition="C" category="header" name="saml21b/include/sam.h"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21b/templates/main.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21b/templates/main.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21b/templates/library.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21b/templates/library.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21b/gcc/system_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21b/gcc/gcc/startup_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="linkerScript"
+                  name="saml21b/gcc/gcc/saml21e17b_flash.ld"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="other"
+                  name="saml21b/gcc/gcc/saml21e17b_sram.ld"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21b/armcc/Device/SAML21B/Source/system_saml21.c"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21b/armcc/Device/SAML21B/Source/ARM/startup_SAML21.s"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21b/iar/system_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21b/iar/iar/startup_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="linkerScript"
+                  name="saml21b/iar/iar/saml21e17b_flash.icf"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="other"
+                  name="saml21b/iar/iar/saml21e17b_sram.icf"
+                  attr="config"/>
+         </files>
+      </component>
+      <component Cvendor="Atmel"
+                 Cclass="Device"
+                 Cgroup="Startup"
+                 Cversion="1.2.0"
+                 condition="ATSAML21J17B">
+         <description>Headers and startup code for Atmel ATSAML21J17B</description>
+         <files>
+            <file condition="C" category="include" name="saml21b/include"/>
+            <file condition="C" category="header" name="saml21b/include/sam.h"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21b/templates/main.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21b/templates/main.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21b/templates/library.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21b/templates/library.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21b/gcc/system_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21b/gcc/gcc/startup_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="linkerScript"
+                  name="saml21b/gcc/gcc/saml21j17b_flash.ld"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="other"
+                  name="saml21b/gcc/gcc/saml21j17b_sram.ld"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21b/armcc/Device/SAML21B/Source/system_saml21.c"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21b/armcc/Device/SAML21B/Source/ARM/startup_SAML21.s"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21b/iar/system_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21b/iar/iar/startup_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="linkerScript"
+                  name="saml21b/iar/iar/saml21j17b_flash.icf"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="other"
+                  name="saml21b/iar/iar/saml21j17b_sram.icf"
+                  attr="config"/>
+         </files>
+      </component>
+      <component Cvendor="Atmel"
+                 Cclass="Device"
+                 Cgroup="Startup"
+                 Cversion="1.2.0"
+                 condition="ATSAML21J16B">
+         <description>Headers and startup code for Atmel ATSAML21J16B</description>
+         <files>
+            <file condition="C" category="include" name="saml21b/include"/>
+            <file condition="C" category="header" name="saml21b/include/sam.h"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21b/templates/main.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21b/templates/main.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21b/templates/library.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21b/templates/library.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21b/gcc/system_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21b/gcc/gcc/startup_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="linkerScript"
+                  name="saml21b/gcc/gcc/saml21j16b_flash.ld"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="other"
+                  name="saml21b/gcc/gcc/saml21j16b_sram.ld"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21b/armcc/Device/SAML21B/Source/system_saml21.c"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21b/armcc/Device/SAML21B/Source/ARM/startup_SAML21.s"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21b/iar/system_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21b/iar/iar/startup_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="linkerScript"
+                  name="saml21b/iar/iar/saml21j16b_flash.icf"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="other"
+                  name="saml21b/iar/iar/saml21j16b_sram.icf"
+                  attr="config"/>
+         </files>
+      </component>
+      <component Cvendor="Atmel"
+                 Cclass="Device"
+                 Cgroup="Startup"
+                 Cversion="1.2.0"
+                 condition="ATSAML21J18A">
+         <description>Headers and startup code for Atmel ATSAML21J18A</description>
+         <files>
+            <file condition="C" category="include" name="saml21a1/include"/>
+            <file condition="C" category="header" name="saml21a1/include/sam.h"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21a1/templates/main.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21a1/templates/main.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21a1/templates/library.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21a1/templates/library.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21a1/gcc/system_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21a1/gcc/gcc/startup_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="linkerScript"
+                  name="saml21a1/gcc/gcc/saml21j18a_flash.ld"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="other"
+                  name="saml21a1/gcc/gcc/saml21j18a_sram.ld"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21a1/armcc/Device/SAML21A1/Source/system_saml21.c"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21a1/armcc/Device/SAML21A1/Source/ARM/startup_SAML21.s"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21a1/iar/system_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21a1/iar/iar/startup_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="linkerScript"
+                  name="saml21a1/iar/iar/saml21j18a_flash.icf"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="other"
+                  name="saml21a1/iar/iar/saml21j18a_sram.icf"
+                  attr="config"/>
+         </files>
+      </component>
+      <component Cvendor="Atmel"
+                 Cclass="Device"
+                 Cgroup="Startup"
+                 Cversion="1.2.0"
+                 condition="ATSAML21J18B">
+         <description>Headers and startup code for Atmel ATSAML21J18B</description>
+         <files>
+            <file condition="C" category="include" name="saml21b/include"/>
+            <file condition="C" category="header" name="saml21b/include/sam.h"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21b/templates/main.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21b/templates/main.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21b/templates/library.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21b/templates/library.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21b/gcc/system_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21b/gcc/gcc/startup_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="linkerScript"
+                  name="saml21b/gcc/gcc/saml21j18b_flash.ld"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="other"
+                  name="saml21b/gcc/gcc/saml21j18b_sram.ld"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21b/armcc/Device/SAML21B/Source/system_saml21.c"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21b/armcc/Device/SAML21B/Source/ARM/startup_SAML21.s"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21b/iar/system_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21b/iar/iar/startup_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="linkerScript"
+                  name="saml21b/iar/iar/saml21j18b_flash.icf"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="other"
+                  name="saml21b/iar/iar/saml21j18b_sram.icf"
+                  attr="config"/>
+         </files>
+      </component>
+      <component Cvendor="Atmel"
+                 Cclass="Device"
+                 Cgroup="Startup"
+                 Cversion="1.2.0"
+                 condition="ATSAML21J17BU">
+         <description>Headers and startup code for Atmel ATSAML21J17BU</description>
+         <files>
+            <file condition="C" category="include" name="saml21b/include"/>
+            <file condition="C" category="header" name="saml21b/include/sam.h"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21b/templates/main.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21b/templates/main.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21b/templates/library.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21b/templates/library.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21b/gcc/system_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21b/gcc/gcc/startup_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="linkerScript"
+                  name="saml21b/gcc/gcc/saml21j17bu_flash.ld"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="other"
+                  name="saml21b/gcc/gcc/saml21j17bu_sram.ld"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21b/armcc/Device/SAML21B/Source/system_saml21.c"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21b/armcc/Device/SAML21B/Source/ARM/startup_SAML21.s"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21b/iar/system_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21b/iar/iar/startup_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="linkerScript"
+                  name="saml21b/iar/iar/saml21j17bu_flash.icf"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="other"
+                  name="saml21b/iar/iar/saml21j17bu_sram.icf"
+                  attr="config"/>
+         </files>
+      </component>
+      <component Cvendor="Atmel"
+                 Cclass="Device"
+                 Cgroup="Startup"
+                 Cversion="1.2.0"
+                 condition="ATSAML21E18A">
+         <description>Headers and startup code for Atmel ATSAML21E18A</description>
+         <files>
+            <file condition="C" category="include" name="saml21a1/include"/>
+            <file condition="C" category="header" name="saml21a1/include/sam.h"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21a1/templates/main.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21a1/templates/main.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21a1/templates/library.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21a1/templates/library.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21a1/gcc/system_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21a1/gcc/gcc/startup_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="linkerScript"
+                  name="saml21a1/gcc/gcc/saml21e18a_flash.ld"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="other"
+                  name="saml21a1/gcc/gcc/saml21e18a_sram.ld"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21a1/armcc/Device/SAML21A1/Source/system_saml21.c"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21a1/armcc/Device/SAML21A1/Source/ARM/startup_SAML21.s"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21a1/iar/system_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21a1/iar/iar/startup_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="linkerScript"
+                  name="saml21a1/iar/iar/saml21e18a_flash.icf"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="other"
+                  name="saml21a1/iar/iar/saml21e18a_sram.icf"
+                  attr="config"/>
+         </files>
+      </component>
+      <component Cvendor="Atmel"
+                 Cclass="Device"
+                 Cgroup="Startup"
+                 Cversion="1.2.0"
+                 condition="ATSAML21J18BU">
+         <description>Headers and startup code for Atmel ATSAML21J18BU</description>
+         <files>
+            <file condition="C" category="include" name="saml21b/include"/>
+            <file condition="C" category="header" name="saml21b/include/sam.h"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21b/templates/main.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21b/templates/main.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21b/templates/library.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21b/templates/library.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21b/gcc/system_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21b/gcc/gcc/startup_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="linkerScript"
+                  name="saml21b/gcc/gcc/saml21j18bu_flash.ld"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="other"
+                  name="saml21b/gcc/gcc/saml21j18bu_sram.ld"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21b/armcc/Device/SAML21B/Source/system_saml21.c"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21b/armcc/Device/SAML21B/Source/ARM/startup_SAML21.s"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21b/iar/system_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21b/iar/iar/startup_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="linkerScript"
+                  name="saml21b/iar/iar/saml21j18bu_flash.icf"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="other"
+                  name="saml21b/iar/iar/saml21j18bu_sram.icf"
+                  attr="config"/>
+         </files>
+      </component>
+      <component Cvendor="Atmel"
+                 Cclass="Device"
+                 Cgroup="Startup"
+                 Cversion="1.2.0"
+                 condition="ATSAML21E18B">
+         <description>Headers and startup code for Atmel ATSAML21E18B</description>
+         <files>
+            <file condition="C" category="include" name="saml21b/include"/>
+            <file condition="C" category="header" name="saml21b/include/sam.h"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21b/templates/main.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Exe"
+                  category="source"
+                  name="saml21b/templates/main.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21b/templates/library.c"
+                  attr="template"
+                  select="Main file (.c)"/>
+            <file condition="C Lib"
+                  category="source"
+                  name="saml21b/templates/library.cpp"
+                  attr="template"
+                  select="Main file (.cpp)"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21b/gcc/system_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="source"
+                  name="saml21b/gcc/gcc/startup_saml21.c"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="linkerScript"
+                  name="saml21b/gcc/gcc/saml21e18b_flash.ld"
+                  attr="config"/>
+            <file condition="GCC Exe"
+                  category="other"
+                  name="saml21b/gcc/gcc/saml21e18b_sram.ld"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21b/armcc/Device/SAML21B/Source/system_saml21.c"
+                  attr="config"/>
+            <file condition="ARMCC Exe"
+                  category="source"
+                  name="saml21b/armcc/Device/SAML21B/Source/ARM/startup_SAML21.s"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21b/iar/system_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="source"
+                  name="saml21b/iar/iar/startup_saml21.c"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="linkerScript"
+                  name="saml21b/iar/iar/saml21e18b_flash.icf"
+                  attr="config"/>
+            <file condition="IAR Exe"
+                  category="other"
+                  name="saml21b/iar/iar/saml21e18b_sram.icf"
+                  attr="config"/>
+         </files>
+      </component>
+   </components>
+</package>

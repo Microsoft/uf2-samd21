@@ -9,6 +9,9 @@ void delay(uint32_t ms) {
 #ifdef SAMD21
     ms <<= 8;
 #endif
+#ifdef SAML21
+    ms <<= 8;
+#endif
 // SAMD51 starts up at 48mhz by default.
 #ifdef SAMD51
     ms <<= 12;

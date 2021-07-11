@@ -83,6 +83,9 @@ extern int8_t led_tick_step;
 #ifdef SAMD21
 #define RESET_CONTROLLER PM
 #endif
+#ifdef SAML21
+#define RESET_CONTROLLER RSTC
+#endif
 #ifdef SAMD51
 #define RESET_CONTROLLER RSTC
 #endif
